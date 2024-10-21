@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    helm.sh/hook: pre-install
+    helm.sh/hook-weight: "1"
+  labels:
+    released-by: atheno
+  name: db
+spec:
+  serviceName: "db"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        released-by: atheno
+        app: db
+    spec:
+      containers:
+      - name: db
+        image: {{ .Values.dbImage }}
+        env:
+        - name: POSTGRES_PASSWORD
+          value: atheno
+        - name: POSTGRES_USER
+          value: atheno
+        - name: POSTGRES_DB
+          value: atheno_db
+        ports:
+        - containerPort: 5432
+        readinessProbe:
+          exec:
+            command: ["pg_isready", "-U", "atheno", "-d", "atheno_db"]
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 5
