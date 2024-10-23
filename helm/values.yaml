@@ -1,6 +1,0 @@
-CLUSTER_TYPE: "k8s" # CLUSTER_TYPE - docker or k8s
-athenoImage: "atheno/atheno:beta.2"
-dbImage: "atheno/pgvector:16"
-openAPIKey: "xxxxx"
-openAPIModel: "gpt-4o-mini"
-githubPersonalAccessToken: "xxxxxx"

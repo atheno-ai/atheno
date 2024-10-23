@@ -1,0 +1,21 @@
+apiVersion: v1
+entries:
+  atheno:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2024-10-23T17:03:17.894528+05:30"
+    description: Kubernetes IDE with AI Co-pilot
+    digest: de4e6f5a45e3a51b2188d09eaef2aa61018846e7b3959531651d3c273aa4558e
+    home: https://atheno.ai
+    icon: https://atheno-marketing.s3.us-east-1.amazonaws.com/atheno.png
+    keywords:
+    - low-code
+    - IDE
+    - Co-pilot
+    - GenAI
+    kubeVersion: '>=1.21-0'
+    name: atheno
+    urls:
+    - atheno-1.tgz
+    version: "1"
+generated: "2024-10-23T17:03:17.894019+05:30"
