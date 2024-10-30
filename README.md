@@ -23,8 +23,9 @@ The following incoming firewall ports need to be opened - `30003`.
 Install the chart
 
 ```sh
-cd helm
-helm install atheno ./ --create-namespace -n atheno
+helm repo add atheno https://atheno-ai.github.io/atheno/
+helm repo update
+helm install atheno atheno/atheno --namespace atheno --create-namespace
 ```
 
 ### Validating the installation
@@ -32,7 +33,7 @@ helm install atheno ./ --create-namespace -n atheno
 Atheno installation can be validated by waiting for the Atheno services to move to `ready` state.
 
 ```sh
-kubectl wait --for=condition=ready pod -l released-by=atheno -n atheno
+kubectl wait --for=condition=ready pod -l released-by=atheno -n atheno --timeout=2m
 ```
 
 One the installation is complete, Atheno dashboard can be accessed at http://[NodeIP]:30003/
