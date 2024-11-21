@@ -25,7 +25,10 @@ Install the chart
 ```sh
 helm repo add atheno https://atheno-ai.github.io/atheno/
 helm repo update
-helm install atheno atheno/atheno --namespace atheno --create-namespace
+helm install atheno atheno/atheno \
+  --namespace atheno \
+  --create-namespace \
+  --set openai.apiKey=<your-openai-key>
 ```
 
 ### Validating the installation
