@@ -47,6 +47,15 @@ NodeIP can be obtained by executing the command below:
 kubectl get nodes -o wide
 ```
 
+## Uninstall
+
+Follow the below command to uninstall the atheno on your machine.
+
+```sh
+helm delete atheno -n atheno
+kubectl delete ns atheno
+```
+
 ## Usage
 
 Open the `Ask AI` option, select the LLM Type as `OpenAI`, select a model, and provide the API Key.  
